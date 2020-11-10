@@ -6,8 +6,8 @@
 </head>
 <body>
 <h1>Все туры:</h1>
-{% for k,tour in data.tours.items() ) %}
-    <p> {{ tour.country }}: {{ k }} <a href="/data/tours/">  {{ tour.title }} {{ tour.price }} {{ tour.stars }}*</a></p>
+{% for number,tour in data.tours.items() %}
+    <p>{{ tour.country }} <a href="/data/tours/{{ number }}/">  {{ tour.title }} {{ tour.price }} {{ tour.stars }}*</a></p>
 {% endfor %}
 </body>
 </html>

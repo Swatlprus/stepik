@@ -6,15 +6,15 @@ app = Flask(__name__) # определяем приложение Flask
 
 @app.route('/')
 def main():
-    return render_template('index.html') # обработка шаблон для главной страницы
+    return render_template('index.html', data=data) # обработка шаблон для главной страницы
 
-@app.route('/departures/<departute>/')
+@app.route('/departures/<departure>/')
 def departures():
-    return render_template('departure.html') # обработка шаблона для направлений
+    return render_template('departure.html', data=data) # обработка шаблона для направлений
 
-@app.route('/tours/<id>/')
-def tours():
-    return render_template('tour.html') # обработка шаблон для туров
+@app.route('/tours/<int:id>/')
+def tour():
+    return render_template('tour.html', data=data, id=data.tours.get()) # обработка шаблон для туров
 
 @app.route('/data/')
 def date():
