@@ -13,8 +13,8 @@ def departures():
     return render_template('departure.html', data=data) # обработка шаблона для направлений
 
 @app.route('/tours/<int:id>/')
-def tour():
-    return render_template('tour.html', data=data, id=data.tours.get()) # обработка шаблон для туров
+def tour(id):
+    return render_template('tour.html', data=data) # обработка шаблон для туров
 
 @app.route('/data/')
 def date():
