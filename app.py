@@ -9,12 +9,13 @@ def main():
     return render_template('index.html', data=data) # обработка шаблон для главной страницы
 
 @app.route('/departures/<departure>/')
-def departures():
-    return render_template('departure.html', data=data) # обработка шаблона для направлений
+def departures(departure):
+    return render_template('departure.html', data=data, departure=departure) # обработка шаблона для направлений
 
 @app.route('/tours/<int:id>/')
 def tour(id):
-    return render_template('tour.html', data=data) # обработка шаблон для туров
+    tour = data.tours[id]
+    return render_template('tour.html', data=data, id=id, tour=tour) # обработка шаблон для туров
 
 @app.route('/data/')
 def date():
