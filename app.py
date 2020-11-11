@@ -10,7 +10,11 @@ def main():
 
 @app.route('/departures/<departure>/')
 def departures(departure):
-    return render_template('departure.html', data=data, departure=departure) # обработка шаблона для направлений
+    arr = []
+    for item in data.tours.values():
+        if item['departure']==departure:
+            arr.append(item)
+    return render_template('departure.html', data=data, departure=departure, arr=arr) # обработка шаблона для направлений
 
 @app.route('/tours/<int:id>/')
 def tour(id):
@@ -18,7 +22,8 @@ def tour(id):
     return render_template('tour.html', data=data, id=id, tour=tour) # обработка шаблон для туров
 
 @app.route('/data/')
-def date():
+def date(id):
+    tour = data.tours[id]
     return render_template('data.html', data=data)
 
 app.run() # запуск сервера Flask
