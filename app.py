@@ -26,4 +26,5 @@ def date(id):
     tour = data.tours[id]
     return render_template('data.html', data=data)
 
-app.run() # запуск сервера Flask
+if __name__ == '__main__':
+    app.run() # запуск сервера Flask
